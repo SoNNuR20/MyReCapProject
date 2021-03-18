@@ -41,5 +41,20 @@ namespace Business.Constants
 		public static string RentalDeleted = "Araba Kiralama İşlemi İptal Edildi";
 		public static string FailedRentalAddOrUpdate = "Araba teslim edilmediği için kiralayamazsınız.";
 		public static string ReturnedRental = "Kiraladığınız araç teslim edildi.";
+
+		public static string CarImageCountError = " Bir araba için maksimum 5 resim yüklenebilir.";
+		public static string CarImagesAdded = "Araba fotoğrafı eklendi";
+		public static string CarImagesListed = "Araba fotoğrafları listelendi";
+		public static string CarImagesUpdated = "Araba fotoğrafları güncellendi";
+		public static string CarImageDeleted = "Araba fotoğrafı silindi";
+		public static string CarImagesNotFound = "Araba resmi sistemde bulunmamaktadır";
+
+		public static string AuthorizationDenied = "Yetkiniz yok";
+		public static string UserNotFound = "Kullanıcı bulunamadı";
+		public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
+		public static string AccessTokenCreated = "Access token başarıyla oluşturuldu";
+		public static string PasswordError = "Şifre hatalı";
+		public static string SuccessfulLogin = "Sisteme giriş başarılı";
+		public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
 	}
 }
