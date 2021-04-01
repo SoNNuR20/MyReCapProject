@@ -70,7 +70,7 @@ namespace Business.Concrete
 		//[PerformanceAspect(5)]
 		public IDataResult<Car> GetById(int id)
 		{
-			return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == id),Messages.CarListed);
+			return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id),Messages.CarListed);
 		}
 
 		public IDataResult<List<CarDetailDto>> GetCarDetails(Expression<Func<Car, bool>> filter = null)

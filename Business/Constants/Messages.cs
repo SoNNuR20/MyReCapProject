@@ -42,6 +42,7 @@ namespace Business.Constants
 		public static string FailedRentalAddOrUpdate = "Araba teslim edilmediği için kiralayamazsınız.";
 		public static string ReturnedRental = "Kiraladığınız araç teslim edildi.";
 
+
 		public static string CarImageCountError = " Bir araba için maksimum 5 resim yüklenebilir.";
 		public static string CarImagesAdded = "Araba fotoğrafı eklendi";
 		public static string CarImagesListed = "Araba fotoğrafları listelendi";
