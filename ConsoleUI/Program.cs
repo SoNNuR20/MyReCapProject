@@ -121,7 +121,7 @@ namespace ConsoleUI
             Console.WriteLine("Kiralanan Arabalar Listesi: \nId\tCar Name\tCustomer Name\tRent Date\tReturn Date");
             foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
-                Console.WriteLine($"{rental.RentalId}\t{rental.CarName}\t{rental.CustomerName}\t{rental.RentDate}\t{rental.ReturnDate}");
+                Console.WriteLine($"{rental.Id}\t{rental.CarName}\t{rental.CustomerName}\t{rental.RentDate}\t{rental.ReturnDate}");
             }
         }
 
@@ -183,7 +183,7 @@ namespace ConsoleUI
             Console.WriteLine("Müşterilerin Listesi: \nId\tKullanıcı Id\tCustomer Name");
             foreach (var customer in customerManager.GetAll().Data)
             {
-                Console.WriteLine($"{customer.CustomerId}\t{customer.UserId}\t\t{customer.CompanyName}");
+                Console.WriteLine($"{customer.Id}\t{customer.UserId}\t\t{customer.CustomerName}");
             }
         }
 
@@ -198,7 +198,7 @@ namespace ConsoleUI
             Customer customerForAdd = new Customer
             {
                 UserId = userIdForAdd,
-                CompanyName = customerNameForAdd
+                CustomerName = customerNameForAdd
             };
             customerManager.Add(customerForAdd);
         }
@@ -219,7 +219,7 @@ namespace ConsoleUI
             Console.WriteLine($"\n\nColor Id'si {modelYearForCarList} olan arabalar: \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescription");
             foreach (var car in carManager.GetCarDetails(I => I.ModelYear == modelYearForCarList).Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -231,7 +231,7 @@ namespace ConsoleUI
             Console.WriteLine($"\n\nGünlük fiyat aralığı {min} ile {max} olan arabalar: \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescriptions");
             foreach (var car in carManager.GetCarDetails(I => I.DailyPrice >= min & I.DailyPrice <= max).Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -241,7 +241,7 @@ namespace ConsoleUI
             int carId = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"\n\nId'si {carId} olan araba: \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescriptions");
             Car carById = carManager.GetById(carId).Data;
-            Console.WriteLine($"{carById.CarId}\t{colorManager.GetById(carById.ColorId).Data.ColorName}\t\t{brandManager.GetById(carById.BrandId).Data.BrandName}\t\t{carById.ModelYear}\t\t{carById.DailyPrice}\t\t{carById.Description}");
+            Console.WriteLine($"{carById.Id}\t{colorManager.GetById(carById.ColorId).Data.ColorName}\t\t{brandManager.GetById(carById.BrandId).Data.BrandName}\t\t{carById.ModelYear}\t\t{carById.DailyPrice}\t\t{carById.Description}");
         }
 
         private static void CarListByColor(CarManager carManager)
@@ -251,7 +251,7 @@ namespace ConsoleUI
             Console.WriteLine($"\n\nColor Id'si {colorIdForCarList} olan arabalar: \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescription");
             foreach (var car in carManager.GetCarDetails(I => I.ColorId == colorIdForCarList).Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -262,7 +262,7 @@ namespace ConsoleUI
             Console.WriteLine($"\n\nBrand Id'si {brandIdForCarList} olan arabalar: \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescription");
             foreach (var car in carManager.GetCarDetails(I => I.BrandId == brandIdForCarList).Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -286,7 +286,7 @@ namespace ConsoleUI
             Console.WriteLine("Model Year: ");
             string modelYearForUpdate = Console.ReadLine();
 
-            Car carForUpdate = new Car { CarId = carIdForUpdate, BrandId = brandIdForUpdate, ColorId = colorIdForUpdate, DailyPrice = dailyPriceForUpdate, Description = descriptionForUpdate, ModelYear = modelYearForUpdate };
+            Car carForUpdate = new Car { Id = carIdForUpdate, BrandId = brandIdForUpdate, ColorId = colorIdForUpdate, DailyPrice = dailyPriceForUpdate, Description = descriptionForUpdate, ModelYear = modelYearForUpdate };
             carManager.Update(carForUpdate);
         }
 
@@ -329,7 +329,7 @@ namespace ConsoleUI
             Console.WriteLine("Arabaların detaylı listesi:  \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescription ");
             foreach (var car in carManager.GetCarDetails().Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorName}\t\t{car.BrandName}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -338,7 +338,7 @@ namespace ConsoleUI
             Console.WriteLine("Arabaların Listesi:  \nId\tColor Name\tBrand Name\tModel Year\tDaily Price\tDescription ");
             foreach (var car in carManager.GetAll().Data)
             {
-                Console.WriteLine($"{car.CarId}\t{car.ColorId}\t\t{car.BrandId}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
+                Console.WriteLine($"{car.Id}\t{car.ColorId}\t\t{car.BrandId}\t\t{car.ModelYear}\t\t{car.DailyPrice}\t\t{car.Description}");
             }
         }
 
@@ -346,7 +346,7 @@ namespace ConsoleUI
         {
             foreach (var brand in brandManager.GetAll().Data)
             {
-                Console.WriteLine($"{brand.BrandId}\t{brand.BrandName}");
+                Console.WriteLine($"{brand.Id}\t{brand.BrandName}");
             }
         }
 
@@ -354,7 +354,7 @@ namespace ConsoleUI
         {
             foreach (var color in colorManager.GetAll().Data)
             {
-                Console.WriteLine($"{color.ColorId}\t{color.ColorName}");
+                Console.WriteLine($"{color.Id}\t{color.ColorName}");
             }
         }
     }
